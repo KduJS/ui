@@ -309,9 +309,9 @@ colors($dark, $light, $invert = false)
     .kdu-ui-dark-mode &
       colors($kdu-ui-info-500, $kdu-ui-gray-800)
   &.success
-    colors($kdu-ui-primary-500, $kdu-ui-primary-100)
+    colors($kdu-ui-primary-500, $kdu-ui-success-100)
     .kdu-ui-dark-mode &
-      colors($kdu-ui-primary-500, $kdu-ui-gray-800)
+      colors($kdu-ui-success-500, $kdu-ui-gray-800)
   disable-focus-styles()
   // Keyboard focus style
   &:focus.focus-visible

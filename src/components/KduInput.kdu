@@ -352,7 +352,7 @@ colors($color)
     colors($kdu-ui-info-500)
   &.success,
   &.status-success
-    colors($kdu-ui-primary-500)
+    colors($kdu-ui-success-500)
 
   &.focused
     &:not(.flat)
