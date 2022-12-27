@@ -1,0 +1,81 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KduDropdown</h2>
+
+      <div class="row">
+        <KduDropdown label="Menu">
+          <KduDropdownButton icon-left="edit">Edit</KduDropdownButton>
+          <KduDropdownButton icon-left="delete">Delete</KduDropdownButton>
+          <KduDropdownButton icon-left="lock" keep-open>Keep open</KduDropdownButton>
+        </KduDropdown>
+
+        <KduDropdown label="Menu" button-class="primary">
+          <KduDropdownButton class="primary" icon-left="edit">Edit</KduDropdownButton>
+          <KduDropdownButton class="primary" icon-left="delete">Delete</KduDropdownButton>
+          <KduDropdownButton class="primary" icon-left="lock" keep-open>Keep open</KduDropdownButton>
+        </KduDropdown>
+
+        <KduDropdown label="Menu" button-class="accent">
+          <KduDropdownButton class="accent" icon-left="edit">Edit</KduDropdownButton>
+          <KduDropdownButton class="accent" icon-left="delete">Delete</KduDropdownButton>
+          <KduDropdownButton class="accent" icon-left="lock" keep-open>Keep open</KduDropdownButton>
+        </KduDropdown>
+
+        <KduDropdown>
+          <KduButton
+            slot="trigger"
+            icon-left="more_vert"
+            class="icon-button flat"
+          />
+
+          <KduDropdownButton class="accent" icon-left="edit">Edit</KduDropdownButton>
+          <KduDropdownButton class="accent" icon-left="delete">Delete</KduDropdownButton>
+          <KduDropdownButton class="accent" icon-left="lock" keep-open>Keep open</KduDropdownButton>
+        </KduDropdown>
+
+        <KduDropdown label="Settings" icon-left="settings" icon-right="keyboard_arrow_down">
+          <KduSwitch icon="bookmark" k-model="boolean" class="extend-left">Bookmark</KduSwitch>
+          <KduSwitch icon="build" k-model="boolean" class="extend-left">Build</KduSwitch>
+          <KduDropdownButton icon-left="settings_backup_restore">Backup and Restore Settings</KduDropdownButton>
+        </KduDropdown>
+
+        <KduDropdown label="With input">
+          <KduInput k-model="string" placeholder="Search" icon-left="search"/>
+          <KduDropdownButton>Result 1</KduDropdownButton>
+          <KduDropdownButton>Result 2</KduDropdownButton>
+          <KduDropdownButton>Result 3</KduDropdownButton>
+        </KduDropdown>
+
+        <KduDropdown label="Grid menu">
+          <div class="kdu-ui-grid default-gap col-2">
+            <KduDropdownButton icon-left="edit">Edit</KduDropdownButton>
+            <KduDropdownButton icon-left="delete">Delete</KduDropdownButton>
+            <KduDropdownButton icon-left="lock" keep-open>Keep open</KduDropdownButton>
+            <KduDropdownButton icon-left="mood">Hello</KduDropdownButton>
+          </div>
+        </KduDropdown>
+
+        <KduDropdown label="Grid with big gap" placement="right">
+          <div class="kdu-ui-grid big-gap col-2">
+            <KduDropdownButton icon-left="edit" class="big">Edit</KduDropdownButton>
+            <KduDropdownButton icon-left="delete" class="big">Delete</KduDropdownButton>
+            <KduDropdownButton icon-left="lock" class="big" keep-open>Keep open</KduDropdownButton>
+            <KduDropdownButton icon-left="mood" class="big">Hello</KduDropdownButton>
+          </div>
+        </KduDropdown>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      boolean: false,
+      string: '',
+    }
+  },
+}
+</script>

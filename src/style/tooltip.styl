@@ -1,0 +1,79 @@
+.k-popper--theme-tooltip
+  $background = $kdu-ui-gray-800
+  $dark-background = $kdu-ui-white
+  $color = $kdu-ui-white
+  $dark-color = $kdu-ui-gray-800
+
+  font-size 14px
+
+  .k-popper__inner
+    background $background
+    color $color
+
+  .k-popper__arrow
+    border-color $background
+
+  .kdu-ui-dark-mode &
+    .k-popper__inner
+      background $dark-background
+      color $dark-color
+
+    .k-popper__arrow
+      border-color $dark-background
+
+.k-popper--theme-dropdown
+  $background = $kdu-ui-white
+  $dark-background = $kdu-ui-gray-900
+  $color = $kdu-ui-gray-800
+  $dark-color = $kdu-ui-white
+
+  .k-popper__inner
+    background $background
+    color $color
+    padding 4px 0
+    box-shadow 0 0 3px rgba(black, .05), 0 10px 30px rgba(black, .1)
+
+  .k-popper__arrow
+    border-color $background
+
+  .kdu-ui-dark-mode &
+    .k-popper__inner
+      background $dark-background
+      color $dark-color
+
+    .k-popper__arrow
+      border-color $dark-background
+
+  &[data-popper-placement^='top']
+    .k-popper__arrow
+      filter drop-shadow(0 3px 3px rgba(black, .15))
+  &[data-popper-placement^='bottom']
+    .k-popper__arrow
+      filter drop-shadow(0 -3px 3px rgba(black, .15))
+  &[data-popper-placement^='left']
+    .k-popper__arrow
+      filter drop-shadow(3px 0 3px rgba(black, .15))
+  &[data-popper-placement^='right']
+    .k-popper__arrow
+      filter drop-shadow(-3px 0 3px rgba(black, .15))
+
+  // Animation
+  &.k-popper__popper--show-to,
+  &.k-popper__popper--hide-to
+    > .k-popper__wrapper
+      transition transform .12s ease-out
+
+  &.k-popper__popper--show-from,
+  &.k-popper__popper--hide-to
+    &[data-popper-placement^='top']
+      > .k-popper__wrapper
+        transform translateY(6px)
+    &[data-popper-placement^='bottom']
+      > .k-popper__wrapper
+        transform translateY(-6px)
+    &[data-popper-placement^='left']
+      > .k-popper__wrapper
+        transform translateX(6px)
+    &[data-popper-placement^='right']
+      > .k-popper__wrapper
+        transform translateX(-6px)

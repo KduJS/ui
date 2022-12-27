@@ -1,0 +1,622 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KduButton</h2>
+
+      <h3>Morphing action</h3>
+      <div class="row">
+        <KduButton
+          @click="log('clicked')"
+        >Button</KduButton>
+        <KduButton
+          href="https://kdu-js.web.app/"
+          target="_blank"
+          icon-right="open_in_new"
+        >kdu-js.web.app</KduButton>
+        <KduButton
+          :to="{ name: 'home' }"
+          active-class="active"
+          icon-left="link"
+        >Kdu UI Framework Test</KduButton>
+      </div>
+      <div class="row">
+        <KduButton
+          disabled
+          @click="log('should not be printed')"
+        >Button</KduButton>
+        <KduButton
+          disabled
+          href="https://kdu-js.web.app/"
+          target="_blank"
+          icon-right="open_in_new"
+        >kdu-js.web.app</KduButton>
+        <KduButton
+          disabled
+          :to="{ name: 'home' }"
+          active-class="active"
+          icon-left="link"
+        >Kdu UI Framework Test</KduButton>
+      </div>
+
+      <h3>Styles</h3>
+      <div class="row">
+        <KduButton icon-left="mic">Default</KduButton>
+        <KduButton class="primary" icon-left="flag" tag="21">Primary</KduButton>
+        <KduButton class="accent" icon-left="star">Accent</KduButton>
+        <KduButton class="danger" icon-left="error">Danger</KduButton>
+        <KduButton class="warning" icon-left="warning">Warning</KduButton>
+        <KduButton class="info" icon-left="info">Info</KduButton>
+        <KduButton class="success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton disabled icon-left="mic">Default</KduButton>
+        <KduButton disabled class="primary" icon-left="flag">Primary</KduButton>
+        <KduButton disabled class="accent" icon-left="star">Accent</KduButton>
+        <KduButton disabled class="danger" icon-left="error">Danger</KduButton>
+        <KduButton disabled class="warning" icon-left="warning">Warning</KduButton>
+        <KduButton disabled class="info" icon-left="info">Info</KduButton>
+        <KduButton disabled class="success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading icon-left="mic">Default</KduButton>
+        <KduButton loading class="primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading class="accent" icon-left="star">Accent</KduButton>
+        <KduButton loading class="danger" icon-left="error">Danger</KduButton>
+        <KduButton loading class="warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading class="info" icon-left="info">Info</KduButton>
+        <KduButton loading class="success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary icon-left="mic">Default</KduButton>
+        <KduButton loading-secondary class="primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading-secondary class="accent" icon-left="star">Accent</KduButton>
+        <KduButton loading-secondary class="danger" icon-left="error">Danger</KduButton>
+        <KduButton loading-secondary class="warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading-secondary class="info" icon-left="info">Info</KduButton>
+        <KduButton loading-secondary class="success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton class="flat" icon-left="mic">Default</KduButton>
+        <KduButton class="flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton class="flat accent" icon-left="star">Accent</KduButton>
+        <KduButton class="flat danger" icon-left="error">Danger</KduButton>
+        <KduButton class="flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton class="flat info" icon-left="info">Info</KduButton>
+        <KduButton class="flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton disabled class="flat" icon-left="mic">Default</KduButton>
+        <KduButton disabled class="flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton disabled class="flat accent" icon-left="star">Accent</KduButton>
+        <KduButton disabled class="flat danger" icon-left="error">Danger</KduButton>
+        <KduButton disabled class="flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton disabled class="flat info" icon-left="info">Info</KduButton>
+        <KduButton disabled class="flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading class="flat" icon-left="mic">Default</KduButton>
+        <KduButton loading class="flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading class="flat accent" icon-left="star">Accent</KduButton>
+        <KduButton loading class="flat danger" icon-left="error">Danger</KduButton>
+        <KduButton loading class="flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading class="flat info" icon-left="info">Info</KduButton>
+        <KduButton loading class="flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="flat" icon-left="mic">Default</KduButton>
+        <KduButton loading-secondary class="flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading-secondary class="flat accent" icon-left="star">Accent</KduButton>
+        <KduButton loading-secondary class="flat danger" icon-left="error">Danger</KduButton>
+        <KduButton loading-secondary class="flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading-secondary class="flat info" icon-left="info">Info</KduButton>
+        <KduButton loading-secondary class="flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton class="round" icon-left="mic">Default</KduButton>
+        <KduButton class="round primary" icon-left="flag">Primary</KduButton>
+        <KduButton class="round accent" icon-left="star">Accent</KduButton>
+        <KduButton class="round danger" icon-left="error">Danger</KduButton>
+        <KduButton class="round warning" icon-left="warning">Warning</KduButton>
+        <KduButton class="round info" icon-left="info">Info</KduButton>
+        <KduButton class="round success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton disabled class="round" icon-left="mic">Default</KduButton>
+        <KduButton disabled class="round primary" icon-left="flag">Primary</KduButton>
+        <KduButton disabled class="round accent" icon-left="star">Accent</KduButton>
+        <KduButton disabled class="round danger" icon-left="error">Danger</KduButton>
+        <KduButton disabled class="round warning" icon-left="warning">Warning</KduButton>
+        <KduButton disabled class="round info" icon-left="info">Info</KduButton>
+        <KduButton disabled class="round success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading class="round" icon-left="mic">Default</KduButton>
+        <KduButton loading class="round primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading class="round accent" icon-left="star">Accent</KduButton>
+        <KduButton loading class="round danger" icon-left="error">Danger</KduButton>
+        <KduButton loading class="round warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading class="round info" icon-left="info">Info</KduButton>
+        <KduButton loading class="round success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="round" icon-left="mic">Default</KduButton>
+        <KduButton loading-secondary class="round primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading-secondary class="round accent" icon-left="star">Accent</KduButton>
+        <KduButton loading-secondary class="round danger" icon-left="error">Danger</KduButton>
+        <KduButton loading-secondary class="round warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading-secondary class="round info" icon-left="info">Info</KduButton>
+        <KduButton loading-secondary class="round success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton class="round flat" icon-left="mic">Default</KduButton>
+        <KduButton class="round flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton class="round flat accent" icon-left="star">Accent</KduButton>
+        <KduButton class="round flat danger" icon-left="error">Danger</KduButton>
+        <KduButton class="round flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton class="round flat info" icon-left="info">Info</KduButton>
+        <KduButton class="round flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton disabled class="round flat" icon-left="mic">Default</KduButton>
+        <KduButton disabled class="round flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton disabled class="round flat accent" icon-left="star">Accent</KduButton>
+        <KduButton disabled class="round flat danger" icon-left="error">Danger</KduButton>
+        <KduButton disabled class="round flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton disabled class="round flat info" icon-left="info">Info</KduButton>
+        <KduButton disabled class="round flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading class="round flat" icon-left="mic">Default</KduButton>
+        <KduButton loading class="round flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading class="round flat accent" icon-left="star">Accent</KduButton>
+        <KduButton loading class="round flat danger" icon-left="error">Danger</KduButton>
+        <KduButton loading class="round flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading class="round flat info" icon-left="info">Info</KduButton>
+        <KduButton loading class="round flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="round flat" icon-left="mic">Default</KduButton>
+        <KduButton loading-secondary class="round flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading-secondary class="round flat accent" icon-left="star">Accent</KduButton>
+        <KduButton loading-secondary class="round flat danger" icon-left="error">Danger</KduButton>
+        <KduButton loading-secondary class="round flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading-secondary class="round flat info" icon-left="info">Info</KduButton>
+        <KduButton loading-secondary class="round flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton class="big" icon-left="mic">Default</KduButton>
+        <KduButton class="big primary" icon-left="flag">Primary</KduButton>
+        <KduButton class="big accent" icon-left="star">Accent</KduButton>
+        <KduButton class="big danger" icon-left="error">Danger</KduButton>
+        <KduButton class="big warning" icon-left="warning">Warning</KduButton>
+        <KduButton class="big info" icon-left="info">Info</KduButton>
+        <KduButton class="big success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton disabled class="big" icon-left="mic">Default</KduButton>
+        <KduButton disabled class="big primary" icon-left="flag">Primary</KduButton>
+        <KduButton disabled class="big accent" icon-left="star">Accent</KduButton>
+        <KduButton disabled class="big danger" icon-left="error">Danger</KduButton>
+        <KduButton disabled class="big warning" icon-left="warning">Warning</KduButton>
+        <KduButton disabled class="big info" icon-left="info">Info</KduButton>
+        <KduButton disabled class="big success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading class="big" icon-left="mic">Default</KduButton>
+        <KduButton loading class="big primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading class="big accent" icon-left="star">Accent</KduButton>
+        <KduButton loading class="big danger" icon-left="error">Danger</KduButton>
+        <KduButton loading class="big warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading class="big info" icon-left="info">Info</KduButton>
+        <KduButton loading class="big success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="big" icon-left="mic">Default</KduButton>
+        <KduButton loading-secondary class="big primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading-secondary class="big accent" icon-left="star">Accent</KduButton>
+        <KduButton loading-secondary class="big danger" icon-left="error">Danger</KduButton>
+        <KduButton loading-secondary class="big warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading-secondary class="big info" icon-left="info">Info</KduButton>
+        <KduButton loading-secondary class="big success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton class="big flat" icon-left="mic">Default</KduButton>
+        <KduButton class="big flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton class="big flat accent" icon-left="star">Accent</KduButton>
+        <KduButton class="big flat danger" icon-left="error">Danger</KduButton>
+        <KduButton class="big flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton class="big flat info" icon-left="info">Info</KduButton>
+        <KduButton class="big flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton disabled class="big flat" icon-left="mic">Default</KduButton>
+        <KduButton disabled class="big flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton disabled class="big flat accent" icon-left="star">Accent</KduButton>
+        <KduButton disabled class="big flat danger" icon-left="error">Danger</KduButton>
+        <KduButton disabled class="big flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton disabled class="big flat info" icon-left="info">Info</KduButton>
+        <KduButton disabled class="big flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading class="big flat" icon-left="mic">Default</KduButton>
+        <KduButton loading class="big flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading class="big flat accent" icon-left="star">Accent</KduButton>
+        <KduButton loading class="big flat danger" icon-left="error">Danger</KduButton>
+        <KduButton loading class="big flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading class="big flat info" icon-left="info">Info</KduButton>
+        <KduButton loading class="big flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="big flat" icon-left="mic">Default</KduButton>
+        <KduButton loading-secondary class="big flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading-secondary class="big flat accent" icon-left="star">Accent</KduButton>
+        <KduButton loading-secondary class="big flat danger" icon-left="error">Danger</KduButton>
+        <KduButton loading-secondary class="big flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading-secondary class="big flat info" icon-left="info">Info</KduButton>
+        <KduButton loading-secondary class="big flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton class="big round" icon-left="mic" tag="42">Default</KduButton>
+        <KduButton class="big round primary" icon-left="flag">Primary</KduButton>
+        <KduButton class="big round accent" icon-left="star">Accent</KduButton>
+        <KduButton class="big round danger" icon-left="error">Danger</KduButton>
+        <KduButton class="big round warning" icon-left="warning">Warning</KduButton>
+        <KduButton class="big round info" icon-left="info">Info</KduButton>
+        <KduButton class="big round success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton disabled class="big round" icon-left="mic">Default</KduButton>
+        <KduButton disabled class="big round primary" icon-left="flag">Primary</KduButton>
+        <KduButton disabled class="big round accent" icon-left="star">Accent</KduButton>
+        <KduButton disabled class="big round danger" icon-left="error">Danger</KduButton>
+        <KduButton disabled class="big round warning" icon-left="warning">Warning</KduButton>
+        <KduButton disabled class="big round info" icon-left="info">Info</KduButton>
+        <KduButton disabled class="big round success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading class="big round" icon-left="mic">Default</KduButton>
+        <KduButton loading class="big round primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading class="big round accent" icon-left="star">Accent</KduButton>
+        <KduButton loading class="big round danger" icon-left="error">Danger</KduButton>
+        <KduButton loading class="big round warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading class="big round info" icon-left="info">Info</KduButton>
+        <KduButton loading class="big round success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="big round" icon-left="mic">Default</KduButton>
+        <KduButton loading-secondary class="big round primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading-secondary class="big round accent" icon-left="star">Accent</KduButton>
+        <KduButton loading-secondary class="big round danger" icon-left="error">Danger</KduButton>
+        <KduButton loading-secondary class="big round warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading-secondary class="big round info" icon-left="info">Info</KduButton>
+        <KduButton loading-secondary class="big round success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton class="big round flat" icon-left="mic">Default</KduButton>
+        <KduButton class="big round flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton class="big round flat accent" icon-left="star">Accent</KduButton>
+        <KduButton class="big round flat danger" icon-left="error">Danger</KduButton>
+        <KduButton class="big round flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton class="big round flat info" icon-left="info">Info</KduButton>
+        <KduButton class="big round flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton disabled class="big round flat" icon-left="mic">Default</KduButton>
+        <KduButton disabled class="big round flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton disabled class="big round flat accent" icon-left="star">Accent</KduButton>
+        <KduButton disabled class="big round flat danger" icon-left="error">Danger</KduButton>
+        <KduButton disabled class="big round flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton disabled class="big round flat info" icon-left="info">Info</KduButton>
+        <KduButton disabled class="big round flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading class="big round flat" icon-left="mic">Default</KduButton>
+        <KduButton loading class="big round flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading class="big round flat accent" icon-left="star">Accent</KduButton>
+        <KduButton loading class="big round flat danger" icon-left="error">Danger</KduButton>
+        <KduButton loading class="big round flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading class="big round flat info" icon-left="info">Info</KduButton>
+        <KduButton loading class="big round flat success" icon-left="done">Success</KduButton>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="big round flat" icon-left="mic">Default</KduButton>
+        <KduButton loading-secondary class="big round flat primary" icon-left="flag">Primary</KduButton>
+        <KduButton loading-secondary class="big round flat accent" icon-left="star">Accent</KduButton>
+        <KduButton loading-secondary class="big round flat danger" icon-left="error">Danger</KduButton>
+        <KduButton loading-secondary class="big round flat warning" icon-left="warning">Warning</KduButton>
+        <KduButton loading-secondary class="big round flat info" icon-left="info">Info</KduButton>
+        <KduButton loading-secondary class="big round flat success" icon-left="done">Success</KduButton>
+      </div>
+
+      <h3>Icon button</h3>
+      <div class="row">
+        <KduButton class="icon-button" icon-left="mic"/>
+        <KduButton class="icon-button primary" icon-left="flag" tag="5"/>
+        <KduButton class="icon-button accent" icon-left="star"/>
+        <KduButton class="icon-button danger" icon-left="error"/>
+        <KduButton class="icon-button warning" icon-left="warning"/>
+        <KduButton class="icon-button info" icon-left="info"/>
+        <KduButton class="icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton disabled class="icon-button" icon-left="mic"/>
+        <KduButton disabled class="icon-button primary" icon-left="flag" tag="5"/>
+        <KduButton disabled class="icon-button accent" icon-left="star"/>
+        <KduButton disabled class="icon-button danger" icon-left="error"/>
+        <KduButton disabled class="icon-button warning" icon-left="warning"/>
+        <KduButton disabled class="icon-button info" icon-left="info"/>
+        <KduButton disabled class="icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading class="icon-button" icon-left="mic"/>
+        <KduButton loading class="icon-button primary" icon-left="flag"/>
+        <KduButton loading class="icon-button accent" icon-left="star"/>
+        <KduButton loading class="icon-button danger" icon-left="error"/>
+        <KduButton loading class="icon-button warning" icon-left="warning"/>
+        <KduButton loading class="icon-button info" icon-left="info"/>
+        <KduButton loading class="icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="icon-button" icon-left="mic"/>
+        <KduButton loading-secondary class="icon-button primary" icon-left="flag"/>
+        <KduButton loading-secondary class="icon-button accent" icon-left="star"/>
+        <KduButton loading-secondary class="icon-button danger" icon-left="error"/>
+        <KduButton loading-secondary class="icon-button warning" icon-left="warning"/>
+        <KduButton loading-secondary class="icon-button info" icon-left="info"/>
+        <KduButton loading-secondary class="icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton class="icon-button flat" icon-left="mic"/>
+        <KduButton class="icon-button flat primary" icon-left="flag"/>
+        <KduButton class="icon-button flat accent" icon-left="star"/>
+        <KduButton class="icon-button flat danger" icon-left="error"/>
+        <KduButton class="icon-button flat warning" icon-left="warning"/>
+        <KduButton class="icon-button flat info" icon-left="info"/>
+        <KduButton class="icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton disabled class="icon-button flat" icon-left="mic"/>
+        <KduButton disabled class="icon-button flat primary" icon-left="flag"/>
+        <KduButton disabled class="icon-button flat accent" icon-left="star"/>
+        <KduButton disabled class="icon-button flat danger" icon-left="error"/>
+        <KduButton disabled class="icon-button flat warning" icon-left="warning"/>
+        <KduButton disabled class="icon-button flat info" icon-left="info"/>
+        <KduButton disabled class="icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading class="icon-button flat" icon-left="mic"/>
+        <KduButton loading class="icon-button flat primary" icon-left="flag"/>
+        <KduButton loading class="icon-button flat accent" icon-left="star"/>
+        <KduButton loading class="icon-button flat danger" icon-left="error"/>
+        <KduButton loading class="icon-button flat warning" icon-left="warning"/>
+        <KduButton loading class="icon-button flat info" icon-left="info"/>
+        <KduButton loading class="icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="icon-button flat" icon-left="mic"/>
+        <KduButton loading-secondary class="icon-button flat primary" icon-left="flag"/>
+        <KduButton loading-secondary class="icon-button flat accent" icon-left="star"/>
+        <KduButton loading-secondary class="icon-button flat danger" icon-left="error"/>
+        <KduButton loading-secondary class="icon-button flat warning" icon-left="warning"/>
+        <KduButton loading-secondary class="icon-button flat info" icon-left="info"/>
+        <KduButton loading-secondary class="icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton class="icon-button round" icon-left="mic"/>
+        <KduButton class="icon-button round primary" icon-left="flag"/>
+        <KduButton class="icon-button round accent" icon-left="star"/>
+        <KduButton class="icon-button round danger" icon-left="error"/>
+        <KduButton class="icon-button round warning" icon-left="warning"/>
+        <KduButton class="icon-button round info" icon-left="info"/>
+        <KduButton class="icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton disabled class="icon-button round" icon-left="mic"/>
+        <KduButton disabled class="icon-button round primary" icon-left="flag"/>
+        <KduButton disabled class="icon-button round accent" icon-left="star"/>
+        <KduButton disabled class="icon-button round danger" icon-left="error"/>
+        <KduButton disabled class="icon-button round warning" icon-left="warning"/>
+        <KduButton disabled class="icon-button round info" icon-left="info"/>
+        <KduButton disabled class="icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading class="icon-button round" icon-left="mic"/>
+        <KduButton loading class="icon-button round primary" icon-left="flag"/>
+        <KduButton loading class="icon-button round accent" icon-left="star"/>
+        <KduButton loading class="icon-button round danger" icon-left="error"/>
+        <KduButton loading class="icon-button round warning" icon-left="warning"/>
+        <KduButton loading class="icon-button round info" icon-left="info"/>
+        <KduButton loading class="icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="icon-button round" icon-left="mic"/>
+        <KduButton loading-secondary class="icon-button round primary" icon-left="flag"/>
+        <KduButton loading-secondary class="icon-button round accent" icon-left="star"/>
+        <KduButton loading-secondary class="icon-button round danger" icon-left="error"/>
+        <KduButton loading-secondary class="icon-button round warning" icon-left="warning"/>
+        <KduButton loading-secondary class="icon-button round info" icon-left="info"/>
+        <KduButton loading-secondary class="icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton class="icon-button round flat" icon-left="mic" tag="14"/>
+        <KduButton class="icon-button round flat primary" icon-left="flag" tag="14"/>
+        <KduButton class="icon-button round flat accent" icon-left="star"/>
+        <KduButton class="icon-button round flat danger" icon-left="error"/>
+        <KduButton class="icon-button round flat warning" icon-left="warning"/>
+        <KduButton class="icon-button round flat info" icon-left="info" tag="14"/>
+        <KduButton class="icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton disabled class="icon-button round flat" icon-left="mic"/>
+        <KduButton disabled class="icon-button round flat primary" icon-left="flag"/>
+        <KduButton disabled class="icon-button round flat accent" icon-left="star"/>
+        <KduButton disabled class="icon-button round flat danger" icon-left="error"/>
+        <KduButton disabled class="icon-button round flat warning" icon-left="warning"/>
+        <KduButton disabled class="icon-button round flat info" icon-left="info"/>
+        <KduButton disabled class="icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading class="icon-button round flat" icon-left="mic"/>
+        <KduButton loading class="icon-button round flat primary" icon-left="flag"/>
+        <KduButton loading class="icon-button round flat accent" icon-left="star"/>
+        <KduButton loading class="icon-button round flat danger" icon-left="error"/>
+        <KduButton loading class="icon-button round flat warning" icon-left="warning"/>
+        <KduButton loading class="icon-button round flat info" icon-left="info"/>
+        <KduButton loading class="icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="icon-button round flat" icon-left="mic"/>
+        <KduButton loading-secondary class="icon-button round flat primary" icon-left="flag"/>
+        <KduButton loading-secondary class="icon-button round flat accent" icon-left="star"/>
+        <KduButton loading-secondary class="icon-button round flat danger" icon-left="error"/>
+        <KduButton loading-secondary class="icon-button round flat warning" icon-left="warning"/>
+        <KduButton loading-secondary class="icon-button round flat info" icon-left="info"/>
+        <KduButton loading-secondary class="icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton class="big icon-button" icon-left="mic"/>
+        <KduButton class="big icon-button primary" icon-left="flag"/>
+        <KduButton class="big icon-button accent" icon-left="star"/>
+        <KduButton class="big icon-button danger" icon-left="error"/>
+        <KduButton class="big icon-button warning" icon-left="warning"/>
+        <KduButton class="big icon-button info" icon-left="info"/>
+        <KduButton class="big icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton disabled class="big icon-button" icon-left="mic"/>
+        <KduButton disabled class="big icon-button primary" icon-left="flag"/>
+        <KduButton disabled class="big icon-button accent" icon-left="star"/>
+        <KduButton disabled class="big icon-button danger" icon-left="error"/>
+        <KduButton disabled class="big icon-button warning" icon-left="warning"/>
+        <KduButton disabled class="big icon-button info" icon-left="info"/>
+        <KduButton disabled class="big icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading class="big icon-button" icon-left="mic"/>
+        <KduButton loading class="big icon-button primary" icon-left="flag"/>
+        <KduButton loading class="big icon-button accent" icon-left="star"/>
+        <KduButton loading class="big icon-button danger" icon-left="error"/>
+        <KduButton loading class="big icon-button warning" icon-left="warning"/>
+        <KduButton loading class="big icon-button info" icon-left="info"/>
+        <KduButton loading class="big icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="big icon-button" icon-left="mic"/>
+        <KduButton loading-secondary class="big icon-button primary" icon-left="flag"/>
+        <KduButton loading-secondary class="big icon-button accent" icon-left="star"/>
+        <KduButton loading-secondary class="big icon-button danger" icon-left="error"/>
+        <KduButton loading-secondary class="big icon-button warning" icon-left="warning"/>
+        <KduButton loading-secondary class="big icon-button info" icon-left="info"/>
+        <KduButton loading-secondary class="big icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton class="big icon-button flat" icon-left="mic" tag="7"/>
+        <KduButton class="big icon-button flat primary" icon-left="flag" tag="7"/>
+        <KduButton class="big icon-button flat accent" icon-left="star" tag="7"/>
+        <KduButton class="big icon-button flat danger" icon-left="error" tag="7"/>
+        <KduButton class="big icon-button flat warning" icon-left="warning" tag="7"/>
+        <KduButton class="big icon-button flat info" icon-left="info" tag="7"/>
+        <KduButton class="big icon-button flat success" icon-left="done" tag="7"/>
+      </div>
+      <div class="row">
+        <KduButton disabled class="big icon-button flat" icon-left="mic"/>
+        <KduButton disabled class="big icon-button flat primary" icon-left="flag"/>
+        <KduButton disabled class="big icon-button flat accent" icon-left="star"/>
+        <KduButton disabled class="big icon-button flat danger" icon-left="error"/>
+        <KduButton disabled class="big icon-button flat warning" icon-left="warning"/>
+        <KduButton disabled class="big icon-button flat info" icon-left="info"/>
+        <KduButton disabled class="big icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading class="big icon-button flat" icon-left="mic"/>
+        <KduButton loading class="big icon-button flat primary" icon-left="flag"/>
+        <KduButton loading class="big icon-button flat accent" icon-left="star"/>
+        <KduButton loading class="big icon-button flat danger" icon-left="error"/>
+        <KduButton loading class="big icon-button flat warning" icon-left="warning"/>
+        <KduButton loading class="big icon-button flat info" icon-left="info"/>
+        <KduButton loading class="big icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="big icon-button flat" icon-left="mic"/>
+        <KduButton loading-secondary class="big icon-button flat primary" icon-left="flag"/>
+        <KduButton loading-secondary class="big icon-button flat accent" icon-left="star"/>
+        <KduButton loading-secondary class="big icon-button flat danger" icon-left="error"/>
+        <KduButton loading-secondary class="big icon-button flat warning" icon-left="warning"/>
+        <KduButton loading-secondary class="big icon-button flat info" icon-left="info"/>
+        <KduButton loading-secondary class="big icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton class="big icon-button round" icon-left="mic"/>
+        <KduButton class="big icon-button round primary" icon-left="flag"/>
+        <KduButton class="big icon-button round accent" icon-left="star"/>
+        <KduButton class="big icon-button round danger" icon-left="error"/>
+        <KduButton class="big icon-button round warning" icon-left="warning"/>
+        <KduButton class="big icon-button round info" icon-left="info"/>
+        <KduButton class="big icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton disabled class="big icon-button round" icon-left="mic"/>
+        <KduButton disabled class="big icon-button round primary" icon-left="flag"/>
+        <KduButton disabled class="big icon-button round accent" icon-left="star"/>
+        <KduButton disabled class="big icon-button round danger" icon-left="error"/>
+        <KduButton disabled class="big icon-button round warning" icon-left="warning"/>
+        <KduButton disabled class="big icon-button round info" icon-left="info"/>
+        <KduButton disabled class="big icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading class="big icon-button round" icon-left="mic"/>
+        <KduButton loading class="big icon-button round primary" icon-left="flag"/>
+        <KduButton loading class="big icon-button round accent" icon-left="star"/>
+        <KduButton loading class="big icon-button round danger" icon-left="error"/>
+        <KduButton loading class="big icon-button round warning" icon-left="warning"/>
+        <KduButton loading class="big icon-button round info" icon-left="info"/>
+        <KduButton loading class="big icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="big icon-button round" icon-left="mic"/>
+        <KduButton loading-secondary class="big icon-button round primary" icon-left="flag"/>
+        <KduButton loading-secondary class="big icon-button round accent" icon-left="star"/>
+        <KduButton loading-secondary class="big icon-button round danger" icon-left="error"/>
+        <KduButton loading-secondary class="big icon-button round warning" icon-left="warning"/>
+        <KduButton loading-secondary class="big icon-button round info" icon-left="info"/>
+        <KduButton loading-secondary class="big icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton class="big icon-button round flat" icon-left="mic"/>
+        <KduButton class="big icon-button round flat primary" icon-left="flag"/>
+        <KduButton class="big icon-button round flat accent" icon-left="star"/>
+        <KduButton class="big icon-button round flat danger" icon-left="error"/>
+        <KduButton class="big icon-button round flat warning" icon-left="warning"/>
+        <KduButton class="big icon-button round flat info" icon-left="info"/>
+        <KduButton class="big icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton disabled class="big icon-button round flat" icon-left="mic"/>
+        <KduButton disabled class="big icon-button round flat primary" icon-left="flag"/>
+        <KduButton disabled class="big icon-button round flat accent" icon-left="star"/>
+        <KduButton disabled class="big icon-button round flat danger" icon-left="error"/>
+        <KduButton disabled class="big icon-button round flat warning" icon-left="warning"/>
+        <KduButton disabled class="big icon-button round flat info" icon-left="info"/>
+        <KduButton disabled class="big icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading class="big icon-button round flat" icon-left="mic"/>
+        <KduButton loading class="big icon-button round flat primary" icon-left="flag"/>
+        <KduButton loading class="big icon-button round flat accent" icon-left="star"/>
+        <KduButton loading class="big icon-button round flat danger" icon-left="error"/>
+        <KduButton loading class="big icon-button round flat warning" icon-left="warning"/>
+        <KduButton loading class="big icon-button round flat info" icon-left="info"/>
+        <KduButton loading class="big icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <KduButton loading-secondary class="big icon-button round flat" icon-left="mic"/>
+        <KduButton loading-secondary class="big icon-button round flat primary" icon-left="flag"/>
+        <KduButton loading-secondary class="big icon-button round flat accent" icon-left="star"/>
+        <KduButton loading-secondary class="big icon-button round flat danger" icon-left="error"/>
+        <KduButton loading-secondary class="big icon-button round flat warning" icon-left="warning"/>
+        <KduButton loading-secondary class="big icon-button round flat info" icon-left="info"/>
+        <KduButton loading-secondary class="big icon-button round flat success" icon-left="done"/>
+      </div>
+    </div>
+  </div>
+</template>

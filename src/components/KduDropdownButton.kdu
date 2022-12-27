@@ -1,0 +1,37 @@
+<template>
+  <KduButton
+    class="kdu-ui-dropdown-button"
+    k-bind="$attrs"
+    k-on="$listeners"
+    k-close-popper="!keepOpen"
+  >
+    <slot/>
+  </KduButton>
+</template>
+
+<script>
+export default {
+  name: 'KduDropdownButton',
+
+  inheritAttrs: false,
+
+  props: {
+    keepOpen: {
+      type: Boolean,
+      default: false,
+    },
+  },
+}
+</script>
+
+<style lang="stylus">
+@import "../style/imports"
+.kdu-ui-dropdown-content .kdu-ui-dropdown-button.kdu-ui-button
+  border-radius 0
+  button-transitions()
+  text-align left
+
+  > .content
+    min-width 100%
+    justify-content flex-start
+</style>

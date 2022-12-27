@@ -1,0 +1,73 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KduSwitch</h2>
+
+      <div class="grid col-2">
+        <KduSwitch k-model="boolean">
+          Enable setting
+        </KduSwitch>
+        <KduSwitch class="right" k-model="boolean">
+          Enable setting
+        </KduSwitch>
+        <KduSwitch disabled k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch disabled class="right" k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch class="extend-left" k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch class="extend-left" disabled k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch class="extend-right" k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch class="extend-right" disabled k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+      </div>
+
+      <h3>With icon:</h3>
+
+      <div class="grid col-2">
+        <KduSwitch icon="settings" k-model="boolean">
+          Enable setting
+        </KduSwitch>
+        <KduSwitch icon="settings" class="right" k-model="boolean">
+          Enable setting
+        </KduSwitch>
+        <KduSwitch icon="settings" disabled k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch icon="settings" disabled class="right" k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch icon="settings" class="extend-left" k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch icon="settings" class="extend-left" disabled k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch icon="settings" class="extend-right" k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+        <KduSwitch icon="settings" class="extend-right" disabled k-model="boolean">
+          Disabled setting
+        </KduSwitch>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      boolean: false,
+    }
+  },
+}
+</script>

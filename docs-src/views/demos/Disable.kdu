@@ -1,0 +1,124 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KduDisable</h2>
+
+      <div class="row">
+        <KduSwitch class="right" k-model="boolean">Disable root</KduSwitch>
+      </div>
+      <div class="row">
+        <KduSwitch class="right" k-model="boolean1a">Disable level 1 A</KduSwitch>
+      </div>
+      <div class="row">
+        <KduSwitch class="right" k-model="boolean1b">Disable level 1 B (with stop propagation)</KduSwitch>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <KduDisable :disabled="boolean">
+          <div class="row">
+            <KduButton
+              href="https://kdu-js.web.app/"
+              target="_blank"
+              icon-right="open_in_new"
+            >kdu-js.web.app</KduButton>
+
+            <KduSelect k-model="choice">
+              <KduSelectButton value="apple" label="Apple"/>
+              <KduSelectButton value="orange" label="Orange"/>
+              <KduSelectButton value="pear" label="Pear"/>
+            </KduSelect>
+
+            <KduInput k-model="string" placeholder="Type a message"/>
+
+            <KduDropdown label="Menu">
+              <KduDropdownButton icon-left="edit">Edit</KduDropdownButton>
+              <KduDropdownButton icon-left="delete">Delete</KduDropdownButton>
+              <KduDropdownButton icon-left="lock" keep-open>Keep open</KduDropdownButton>
+            </KduDropdown>
+          </div>
+
+          <div class="row">
+            <KduDisable :disabled="boolean1a">
+              <div class="row">
+                <KduButton
+                  href="https://kdu-js.web.app/"
+                  target="_blank"
+                  icon-right="open_in_new"
+                >kdu-js.web.app</KduButton>
+
+                <KduSelect k-model="choice">
+                  <KduSelectButton value="apple" label="Apple"/>
+                  <KduSelectButton value="orange" label="Orange"/>
+                  <KduSelectButton value="pear" label="Pear"/>
+                </KduSelect>
+
+                <KduInput k-model="string" placeholder="Type a message"/>
+
+                <KduDropdown label="Menu">
+                  <KduDropdownButton icon-left="edit">Edit</KduDropdownButton>
+                  <KduDropdownButton icon-left="delete">Delete</KduDropdownButton>
+                  <KduDropdownButton icon-left="lock" keep-open>Keep open</KduDropdownButton>
+                </KduDropdown>
+              </div>
+            </KduDisable>
+          </div>
+
+          <div class="row">
+            <KduDisable :disabled="boolean1b" stop-propagation>
+              <div class="row">
+                <KduButton
+                  href="https://kdu-js.web.app/"
+                  target="_blank"
+                  icon-right="open_in_new"
+                >kdu-js.web.app</KduButton>
+
+                <KduSelect k-model="choice">
+                  <KduSelectButton value="apple" label="Apple"/>
+                  <KduSelectButton value="orange" label="Orange"/>
+                  <KduSelectButton value="pear" label="Pear"/>
+                </KduSelect>
+
+                <KduInput k-model="string" placeholder="Type a message"/>
+
+                <KduDropdown label="Menu">
+                  <KduDropdownButton icon-left="edit">Edit</KduDropdownButton>
+                  <KduDropdownButton icon-left="delete">Delete</KduDropdownButton>
+                  <KduDropdownButton icon-left="lock" keep-open>Keep open</KduDropdownButton>
+                </KduDropdown>
+              </div>
+            </KduDisable>
+          </div>
+        </KduDisable>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      boolean: false,
+      boolean1a: false,
+      boolean1b: false,
+      choice: null,
+      string: '',
+    }
+  },
+}
+</script>
+
+<style lang="stylus" scoped>
+@import "~@style"
+
+.row
+  margin-bottom 8px
+  &:last-child
+    margin-bottom 0
+
+.kdu-disable
+  padding 12px
+  border-left solid 10px rgba($kdu-ui-color-primary, .2)
+</style>

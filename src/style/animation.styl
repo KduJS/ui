@@ -1,0 +1,57 @@
+// Focus
+
+@keyframes kdu-ui-focus
+  $color = $kdu-ui-accent-500
+  0%
+    border-color $color
+    box-shadow 0 0 20px rgba($color, 2)
+  100%
+    border-color rgba($color, .6)
+    box-shadow 0 0 4px rgba($color, .5)
+
+@keyframes kdu-ui-focus-dark
+  $color = $kdu-ui-accent-300
+  0%
+    border-color $color
+    box-shadow 0 0 20px rgba($color, 2)
+  100%
+    border-color rgba($color, .6)
+    box-shadow 0 0 4px rgba($color, .5)
+
+// Slide
+
+kdu-ui-slide($direction, $offset)
+  if $direction == bottom
+    $transform = "translateY(%s)" % $offset
+  else if $direction == top
+    $transform = "translateY(-%s)" % $offset
+  else if $direction == left
+    $transform = "translateX(-%s)" % $offset
+  else if $direction == right
+    $transform = "translateX(%s)" % $offset
+  @keyframes kdu-ui-slide-from-{$direction}
+    0%
+      transform $transform
+    100%
+      transform none
+  @keyframes kdu-ui-slide-to-{$direction}
+    0%
+      transform none
+    100%
+      transform $transform
+
+$offset = 6px
+kdu-ui-slide(bottom, $offset)
+kdu-ui-slide(top, $offset)
+kdu-ui-slide(left, $offset)
+kdu-ui-slide(right, $offset)
+
+// Fade
+
+.kdu-ui-fade-enter-active,
+.kdu-ui-fade-leave-active
+  transition opacity .15s linear
+
+.kdu-ui-fade-enter,
+.kdu-ui-fade-leave-to
+  opacity 0

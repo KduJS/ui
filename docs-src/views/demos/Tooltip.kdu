@@ -1,0 +1,11 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KTooltip</h2>
+      <div class="row">
+        <KduButton k-tooltip="`Detailed explanation here`">Hover me!</KduButton>
+        <KduButton disabled k-tooltip="`Here is why I'm disabled...`">Disabled button</KduButton>
+      </div>
+    </div>
+  </div>
+</template>

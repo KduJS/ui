@@ -1,0 +1,138 @@
+<template>
+  <KduDropdown
+    ref="dropdown"
+    class="kdu-ui-select"
+    k-bind="$attrs"
+    k-on="$listeners"
+    :disabled="finalDisabled"
+    :icon-left="displayedIcon"
+    :icon-right="iconRight"
+    :label="displayedLabel"
+    :popover-class="['popover', 'select-popover', popoverClass]"
+    content-class="kdu-ui-select-popover-content"
+    force-min-size
+    eager-mount
+  >
+    <template slot="trigger">
+      <slot name="trigger" :label="displayedLabel"/>
+    </template>
+
+    <KduGroup
+      k-model="valueModel"
+      class="vertical"
+    >
+      <slot/>
+    </KduGroup>
+  </KduDropdown>
+</template>
+
+<script>
+import DisabledChild from '../mixins/DisabledChild'
+
+export default {
+  name: 'KduSelect',
+
+  inheritAttrs: false,
+
+  model: {
+    event: 'update',
+  },
+
+  mixins: [
+    DisabledChild,
+  ],
+
+  provide () {
+    return {
+      KduSelect: {
+        setCurrentChild: this.setCurrentChild,
+        getCurrentChild: () => this.currentChild,
+      },
+    }
+  },
+
+  props: {
+    iconLeft: {
+      type: String,
+      default: null,
+    },
+
+    iconRight: {
+      type: String,
+      default: 'keyboard_arrow_down',
+    },
+
+    label: {
+      type: [String, Number],
+      default: null,
+    },
+
+    placeholder: {
+      type: String,
+      default: 'Select...',
+    },
+
+    popoverClass: {
+      type: String,
+      default: undefined,
+    },
+
+    value: {},
+  },
+
+  data () {
+    return {
+      currentChild: null,
+    }
+  },
+
+  computed: {
+    displayedLabel () {
+      if (this.label) {
+        return this.label
+      } else if (this.currentChild) {
+        return this.currentChild.selectLabel ||
+          this.currentChild.$attrs.label ||
+          this.value
+      } else if (this.placeholder) {
+        return this.placeholder
+      } else {
+        return this.value
+      }
+    },
+
+    displayedIcon () {
+      if (this.iconLeft) {
+        return this.iconLeft
+      } else if (this.currentChild) {
+        return this.currentChild.$attrs.icon ||
+          this.currentChild.$attrs['icon-left']
+      }
+    },
+
+    valueModel: {
+      get () { return this.value },
+      set (value) { this.$emit('update', value) },
+    },
+  },
+
+  methods: {
+    setCurrentChild (vm) {
+      this.currentChild = vm
+    },
+  },
+}
+</script>
+
+<style lang="stylus">
+.kdu-ui-select
+  .dropdown-trigger
+    .kdu-ui-button
+      > .content > .default-slot
+        flex auto 1 1
+
+.kdu-ui-select-popover-content
+  padding 0 4px
+  max-height 220px
+  overflow-y auto
+</style>

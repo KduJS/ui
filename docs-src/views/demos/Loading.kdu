@@ -1,0 +1,69 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KduLoadingIndicator</h2>
+      <div class="grid col-3">
+        <KduLoadingIndicator class="small"/>
+        <KduLoadingIndicator/>
+        <KduLoadingIndicator class="big"/>
+        <KduLoadingIndicator class="primary small"/>
+        <KduLoadingIndicator class="primary"/>
+        <KduLoadingIndicator class="primary big"/>
+        <KduLoadingIndicator class="accent small"/>
+        <KduLoadingIndicator class="accent"/>
+        <KduLoadingIndicator class="accent big"/>
+      </div>
+      <div class="row">
+        Inline:
+        <KduLoadingIndicator class="inline small"/>
+        <KduLoadingIndicator class="inline small primary"/>
+        <KduLoadingIndicator class="inline small accent"/>
+        <KduLoadingIndicator class="inline"/>
+        <KduLoadingIndicator class="inline primary"/>
+        <KduLoadingIndicator class="inline accent"/>
+        <KduLoadingIndicator class="inline big"/>
+        <KduLoadingIndicator class="inline big primary"/>
+        <KduLoadingIndicator class="inline big accent"/>
+      </div>
+      <div class="row">
+        <KduButton @click="loading = !loading">Toggle loading overlay</KduButton>
+        <KduLoadingIndicator
+          k-if="loading"
+          class="overlay fixed primary big"
+        >
+          <KduButton @click="loading = false">Close</KduButton>
+        </KduLoadingIndicator>
+      </div>
+    </div>
+
+    <div class="ui-test">
+      <h2>KduLoadingBar</h2>
+
+      <div class="grid col-4">
+        <KduLoadingBar :value="0"/>
+        <KduLoadingBar :value=".5"/>
+        <KduLoadingBar :value="1"/>
+        <KduLoadingBar unknown/>
+        <KduLoadingBar class="primary" :value="0"/>
+        <KduLoadingBar class="primary" :value=".5"/>
+        <KduLoadingBar class="primary" :value="1"/>
+        <KduLoadingBar class="primary" unknown/>
+        <KduLoadingBar class="accent" :value="0"/>
+        <KduLoadingBar class="accent" :value=".5"/>
+        <KduLoadingBar class="accent" :value="1"/>
+        <KduLoadingBar class="accent" unknown/>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      loading: false,
+    }
+  },
+}
+</script>
+

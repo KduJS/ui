@@ -1,0 +1,10 @@
+{
+  "root": true,
+  "extends": [
+    "plugin:kdu/essential",
+    "@kdujs/standard"
+  ],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"]
+  }
+}

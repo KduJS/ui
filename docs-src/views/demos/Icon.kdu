@@ -1,0 +1,29 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KduIcon</h2>
+
+      <div class="row">
+        <KduIcon icon="backup" class="small"/>
+        <KduIcon icon="star"/>
+        <KduIcon icon="feedback" class="medium"/>
+        <KduIcon icon="settings" class="big"/>
+        <KduIcon icon="verified_user" class="large"/>
+        <KduIcon icon="mood" class="huge"/>
+        <KduIcon icon="fingerprint" class="gigantic"/>
+      </div>
+
+      <div class="row">
+        500
+        <KduIcon icon="star" class="medium top"/>
+        on GitHub
+      </div>
+
+      <div class="row" style="font-size: 26px">
+        500
+        <KduIcon icon="star" class="large top"/>
+        on GitHub
+      </div>
+    </div>
+  </div>
+</template>

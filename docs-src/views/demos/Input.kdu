@@ -1,0 +1,117 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KduInput</h2>
+
+      <div class="row">Message: {{ string }}</div>
+
+      <div class="grid col-6">
+        <KduInput k-model="string" placeholder="Type a message"/>
+        <KduInput class="accent" k-model="string" placeholder="Accent input"/>
+        <KduInput icon-left="search" k-model="string" placeholder="Type a message"/>
+        <KduInput icon-right="lock" type="password" class="accent" k-model="string" placeholder="Password"/>
+        <KduInput loading-left k-model="string" placeholder="Type a message"/>
+        <KduInput loading-right k-model="string" placeholder="Type a message"/>
+        <KduButton icon-left="replay" @click="string = ''">Reset</KduButton>
+        <KduInput class="flat" k-model="string" placeholder="Flat input"/>
+        <KduInput class="flat" icon-left="search" k-model="string" placeholder="Type a message"/>
+        <KduInput class="flat accent" icon-right="arrow_forward" k-model="string" placeholder="Type a message"/>
+        <KduInput class="flat" loading-left k-model="string" placeholder="Type a message"/>
+        <KduInput class="flat" loading-right k-model="string" placeholder="Type a message"/>
+      </div>
+
+      <div class="grid col-6">
+        <KduInput disabled k-model="string" placeholder="Type a message"/>
+        <KduInput disabled class="accent" k-model="string" placeholder="Accent input"/>
+        <KduInput disabled icon-left="search" k-model="string" placeholder="Type a message"/>
+        <KduInput disabled icon-right="arrow_forward" class="accent" k-model="string" placeholder="Type a message"/>
+        <KduInput disabled loading-left k-model="string" placeholder="Type a message"/>
+        <KduInput disabled loading-right k-model="string" placeholder="Type a message"/>
+        <KduButton disabled icon-left="replay" @click="string = ''">Reset</KduButton>
+        <KduInput disabled class="flat" k-model="string" placeholder="Flat input"/>
+        <KduInput disabled class="flat" icon-left="search" k-model="string" placeholder="Type a message"/>
+        <KduInput disabled class="flat accent" icon-right="arrow_forward" k-model="string" placeholder="Type a message"/>
+        <KduInput disabled class="flat" loading-left k-model="string" placeholder="Type a message"/>
+        <KduInput disabled class="flat" loading-right k-model="string" placeholder="Type a message"/>
+      </div>
+
+      <div class="row">
+        With suggestion: <KduInput icon-left="search" k-model="string" placeholder="Search a fruit" :suggestion="suggestion"/>
+      </div>
+
+      <div class="row">Textarea:</div>
+
+      <div class="grid col-6">
+        <KduInput type="textarea" rows="4" k-model="string" placeholder="Type a message"/>
+      </div>
+
+      <div class="row">Big:</div>
+
+      <div class="row">
+        <KduInput k-model="string" placeholder="Type a message" class="big"/>
+        <KduButton class="primary icon-button big" icon-left="search"/>
+        <KduButton class="big" label="Foobar"/>
+      </div>
+    </div>
+
+    <div class="ui-test">
+      <h2>KduFormField</h2>
+
+      <div class="grid col-2">
+        <KduFormField
+          title="Type a message"
+          subtitle="The message shouldn't be more than 100 characters."
+        >
+          <KduInput k-model="string" placeholder="Type a message"/>
+        </KduFormField>
+
+        <KduFormField
+          title="Invalid message"
+          status-icon
+        >
+          <KduInput k-model="string" placeholder="Type a message" status="danger" icon-right="error"/>
+          <span slot="subtitle">The message is invalid <a href="https://kdu-js.web.app" target="_blank">doc</a></span>
+        </KduFormField>
+
+        <KduFormField
+          title="Warning message"
+          subtitle="The message is valid"
+          status-icon
+        >
+          <KduInput k-model="string" placeholder="Type a message" status="warning" icon-right="warning"/>
+        </KduFormField>
+
+        <KduFormField
+          title="Valid message"
+          subtitle="The message is valid"
+          status-icon
+        >
+          <KduInput k-model="string" placeholder="Type a message" status="success" icon-right="check_circle"/>
+        </KduFormField>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      string: '',
+      suggestions: [
+        'apple',
+        'orange',
+        'banana',
+      ],
+    }
+  },
+
+  computed: {
+    suggestion () {
+      return this.suggestions.find(
+        s => s.startsWith(this.string)
+      )
+    },
+  },
+}
+</script>

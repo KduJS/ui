@@ -1,0 +1,55 @@
+<template>
+  <KduGroupButton
+    ref="groupButton"
+    class="kdu-ui-select-button"
+    k-bind="$attrs"
+    k-on="$listeners"
+    k-close-popper="!keepOpen"
+    flat
+    @selected="onSelect"
+  >
+    <slot/>
+  </KduGroupButton>
+</template>
+
+<script>
+import KduDropdownButton from './KduDropdownButton.kdu'
+
+export default {
+  name: 'KduSelectButton',
+
+  extends: KduDropdownButton,
+
+  inject: [
+    'KduSelect',
+  ],
+
+  props: {
+    selectLabel: {
+      type: String,
+      default: null,
+    },
+  },
+
+  mounted () {
+    this.onSelect(this.$refs.groupButton.selected)
+  },
+
+  methods: {
+    onSelect (selected) {
+      if (selected) {
+        this.KduSelect.setCurrentChild(this)
+      } else if (this.KduSelect.getCurrentChild() === this) {
+        this.KduSelect.setCurrentChild(null)
+      }
+    },
+  },
+}
+</script>
+
+<style lang="stylus">
+@import "../style/imports"
+
+.kdu-ui-select-button
+  border-radius $br !important
+</style>

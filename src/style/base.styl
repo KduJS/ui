@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,700i')
+
+@import "./imports"
+@import "./animation"
+@import "./tooltip"
+
+html
+  background $kdu-ui-white
+
+body
+  font-size 16px
+  font-family 'Roboto', 'Avenir', Helvetica, Arial, sans-serif
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  color $kdu-ui-gray-800
+  margin 0
+
+.kdu-ui-dark-mode
+  color $kdu-ui-white
+  background $kdu-ui-black
+  body
+    color @color
+
+.kdu-ui-high-contrast
+  background black
+
+hr
+  border none
+  height 1px
+  background $kdu-ui-primary-100
+
+a
+  color $kdu-ui-primary-500
+  text-decoration none
+  .kdu-ui-icon
+    svg
+      fill @color
+
+h1, h2, h3, h4, h5, h6
+  font-weight 300
+  margin 24px 0 8px
+  &:first-child
+    margin-top 0
+
+h1
+  font-size 42px
+
+h2
+  font-size 32px
+
+h3
+  font-size 26px
+
+h4
+  font-size 22px
+
+h5
+  font-size 18px
+
+h6
+  font-size 16px
+
+p
+  margin 0 0 8px
+
+ul
+  margin 4px 0
+
+.kdu-ui-no-scroll
+  overflow hidden
+
+.kdu-ui-spacer
+  flex auto 1 1 !important
+  width 0
+  height 0
+
+.kdu-ui-empty
+  color rgba($kdu-ui-gray-800, .5)
+  padding 24px
+  text-align center
+  box-sizing border-box
+  .kdu-ui-icon
+    svg
+      fill @color
+  .kdu-ui-dark-mode &
+    color rgba($kdu-ui-white, .5)
+
+.kdu-ui-text
+  &.banner
+    padding 12px
+    display flex
+    align-items center
+    border-radius $br
+    > .kdu-ui-icon
+      flex auto 0 0
+      &:first-child
+        margin-right 10px
+  &.primary
+    kdu-ui-text-colors($kdu-ui-primary-500)
+  &.accent
+    kdu-ui-text-colors($kdu-ui-accent-500)
+  &.danger
+    kdu-ui-text-colors($kdu-ui-danger-500)
+  &.warning
+    kdu-ui-text-colors($kdu-ui-warning-500)
+  &.info
+    kdu-ui-text-colors($kdu-ui-info-500)
+  &.success
+    kdu-ui-text-colors($kdu-ui-primary-500)
+
+.kdu-ui-grid
+  display grid
+  &.default-gap
+    grid-gap 12px
+  &.big-gap
+    grid-gap 24px
+  for n in (1..10)
+    &.col-{n}
+      grid-template-columns repeat(n, 1fr)
+
+    .span-{n}
+      grid-column span n
+
+::-webkit-scrollbar
+  width 10px
+  height @width
+::-webkit-scrollbar-track-piece
+  background transparent
+::-webkit-scrollbar-track:hover
+  background rgba($kdu-ui-gray-600, .05)
+  .kdu-ui-dark-mode &
+    background rgba($kdu-ui-gray-600, .1)
+::-webkit-scrollbar-thumb
+  background-color $kdu-ui-gray-300
+  border 3px solid transparent
+  background-clip padding-box
+  border-radius 5px
+  &:hover
+    background-color $kdu-ui-gray-600
+  .kdu-ui-dark-mode &
+    background-color $kdu-ui-gray-800
+    &:hover
+      background-color $kdu-ui-gray-500
+
+.kdu-ui-dark-mode
+  scrollbar-color $kdu-ui-gray-800 $kdu-ui-black
+
+.kdu-ui-high-contrast
+  :focus
+    outline cyan 2px solid !important
+
+// Icon
+
+.kdu-ui-icon
+  display inline-block
+  width 18px
+  height @width
+  vertical-align bottom
+  svg
+    width 100%
+    height 100%
+    fill $kdu-ui-gray-800
+    pointer-events none
+
+  .kdu-ui-dark-mode &
+    svg
+      fill $kdu-ui-white
+
+  &.primary
+    svg
+      fill $kdu-ui-primary-500
+  &.accent
+    svg
+      fill $kdu-ui-accent-500
+  &.danger
+    svg
+      fill $kdu-ui-danger-500
+  &.warning
+    svg
+      fill $kdu-ui-warning-500
+  &.info
+    svg
+      fill $kdu-ui-info-500
+  &.success
+    svg
+      fill $kdu-ui-primary-500
+
+  &.top
+    position relative
+    top -.06rem
+
+  // Size
+  &.small
+    width 12px
+    height @width
+  &.medium
+    width 20px
+    height @width
+  &.big
+    width 24px
+    height @width
+  &.large
+    width 32px
+    height @width
+  &.huge
+    width 42px
+    height @width
+  &.gigantic
+    width 64px
+    height @width
+
+// Loading bar
+
+colors($foreground, $background)
+  background $background
+  .bar
+    background $foreground
+
+.kdu-ui-loading-bar
+  height 3px
+  position relative
+
+  .bar
+    height 100%
+
+  colors($kdu-ui-gray-800, $kdu-ui-primary-100)
+  .kdu-ui-dark-mode &
+    colors($kdu-ui-gray-600, $kdu-ui-gray-800)
+
+  &.primary
+    colors($kdu-ui-primary-500, $kdu-ui-primary-100)
+    .kdu-ui-dark-mode &
+      colors($kdu-ui-primary-500, $kdu-ui-gray-800)
+
+  &.accent
+    colors($kdu-ui-accent-500, $kdu-ui-primary-100)
+    .kdu-ui-dark-mode &
+      colors($kdu-ui-accent-300, $kdu-ui-gray-800)
+
+  &.unknown
+    .bar
+      position absolute
+      top 0
+      animation bar-animation .8s infinite linear
+
+  &.ghost
+    height 0
+    z-index 300
+    background transparent
+    .bar
+      height 3px
+
+@keyframes bar-animation
+  0%
+    left 0
+    right 100%
+  50%
+    left 0
+    right 0
+  100%
+    left 100%
+    right 0
+
+// Loading indicator
+
+colors($color)
+  border-color rgba($color, .1)
+  border-right-color $color
+
+.kdu-ui-loading-indicator
+  display flex
+  &.inline
+    display inline-flex
+  flex-direction column
+  box-center()
+
+  > .animation
+    animation rotating .7s linear infinite
+    width 16px
+    height @width
+    border-radius 50%
+    border transparent 2px solid
+    colors($kdu-ui-gray-800)
+    .kdu-ui-dark-mode &
+      colors($kdu-ui-gray-600)
+  &.primary
+    > .animation
+      colors($kdu-ui-primary-500)
+  &.accent
+    > .animation
+      colors($kdu-ui-accent-500)
+      .kdu-ui-dark-mode &
+        colors($kdu-ui-accent-300)
+  &.small
+    > .animation
+      width 10px
+      height @width
+  &.big
+    > .animation
+      width 24px
+      height @width
+      border-width 3px
+
+  .kdu-ui-high-contrast &
+    > .animation
+      border-width 4px
+
+  &.overlay
+    position absolute
+    top 0
+    bottom 0
+    left 0
+    right 0
+    z-index 1
+    > .animation
+      margin-bottom 32px
+    &:not(.transparent)
+      background rgba($kdu-ui-white, .95)
+      .kdu-ui-dark-mode &
+        background rgba($kdu-ui-gray-900, .95)
+    &.fixed
+      position fixed
+
+@keyframes rotating
+  0%
+    transform rotate(0)
+  100%
+    transform rotate(360deg)

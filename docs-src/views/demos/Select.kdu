@@ -1,0 +1,68 @@
+<template>
+  <div class="demo">
+    <div class="ui-test">
+      <h2>KduSelect</h2>
+
+      <div class="row">
+        <KduButton icon-left="replay" @click="choice = null">Reset</KduButton>
+        <KduSelect k-model="choice">
+          <KduSelectButton value="apple" label="Apple"/>
+          <KduSelectButton value="orange" label="Orange"/>
+          <KduSelectButton value="banana" label="Banana"/>
+        </KduSelect>
+        <KduSelect k-model="choice" button-class="flat">
+          <KduSelectButton value="apple" label="Apple"/>
+          <KduSelectButton value="orange" label="Orange"/>
+          <KduSelectButton value="banana" label="Banana"/>
+        </KduSelect>
+        <KduSelect disabled k-model="choice">
+          <KduSelectButton value="apple" label="Apple"/>
+          <KduSelectButton value="orange" label="Orange"/>
+          <KduSelectButton value="banana" label="Banana"/>
+        </KduSelect>
+        <KduSelect disabled k-model="choice" button-class="flat">
+          <KduSelectButton value="apple" label="Apple"/>
+          <KduSelectButton value="orange" label="Orange"/>
+          <KduSelectButton value="banana" label="Banana"/>
+        </KduSelect>
+      </div>
+      <div class="row">
+        <KduSelect k-model="choice" icon-left="star" style="width: 200px;">
+          <KduSelectButton value="apple" label="Apple"/>
+          <KduSelectButton value="orange" label="Orange"/>
+          <KduSelectButton value="banana" label="Banana"/>
+        </KduSelect>
+        <KduSelect k-model="choice" button-class="primary" placeholder="Custom placeholder">
+          <KduSelectButton value="apple" class="primary" icon-left="flag" label="Apple"/>
+          <KduSelectButton value="orange" class="primary" icon-left="star" label="Orange"/>
+          <KduSelectButton value="banana" class="primary" icon-left="build" label="Banana"/>
+        </KduSelect>
+        <KduSelect k-model="choice" button-class="accent">
+          <KduSelectButton value="apple" class="accent" icon-left="flag" label="Apple"/>
+          <KduSelectButton value="orange" class="accent" icon-left="star" label="Orange"/>
+          <KduSelectButton value="banana" class="accent" icon-left="build" label="Banana"/>
+        </KduSelect>
+        <KduSelect k-model="choice">
+          <KduSelectButton k-for="n in 20" :key="n" :value="n" :label="`Option ${n}`"/>
+        </KduSelect>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      choice: '',
+    }
+  },
+}
+</script>
+
+<style lang="stylus">
+.kdu-select
+  .dropdown-trigger
+    .kdu-button
+      text-align: left
+</style>

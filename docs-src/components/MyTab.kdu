@@ -1,0 +1,14 @@
+<template>
+  <KduTab
+    k-bind="$attrs"
+    k-on="$listeners"
+  >
+    <slot/>
+  </KduTab>
+</template>
+
+<script>
+export default {
+  inheritAttrs: false,
+}
+</script>
