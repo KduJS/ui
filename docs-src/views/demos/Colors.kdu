@@ -4,7 +4,7 @@
       <h2>Colors</h2>
 
       <div
-        k-for="type of ['gray', 'primary', 'accent', 'danger', 'warning', 'info']"
+        k-for="type of ['gray', 'primary', 'accent', 'danger', 'warning', 'info', 'success']"
         :key="type"
         class="row"
       >
@@ -43,7 +43,7 @@
     margin-top 4px
     text-align center
 
-  for type, typeIndex in 'gray' primary accent danger warning info
+  for type, typeIndex in 'gray' primary accent danger warning info success
     for i in (1..9)
       &.color-{type}-{i}00
         .color-preview
